@@ -14,46 +14,47 @@ class DeckList extends React.Component {
       .then(decks => this.props.receiveAllDecks(decks));
   }
   
-  _removeStorage() {
-    console.log('removeStorage Call',this._removeStorage)
-    AsyncStorage.removeItem(deck,'deck', (error) => {
-      if (error) {
-        this._appendMessage('AsyncStorage error: ' + error.message);
-      } else {
-        this._appendMessage('Selection removed from disk.');
-      }
-    });
-  }
+//   _removeStorage() {
+//     console.log('removeStorage Call',this._removeStorage)
+//     AsyncStorage.removeItem(deck,'deck', (error) => {
+//       if (error) {
+//         this._appendMessage('AsyncStorage error: ' + error.message);
+//       } else {
+//         this._appendMessage('Selection removed from disk.');
+//       }
+//     });
+//   }
 
-  async deleteDeck(){
-    try {
-      const decks = JSON.parse(await AsyncStorage.getItem('flashcards: decks'));
-      const newDecks = decks.filter(deck => deck.title != 'Speech');
-      await AsyncStorage.setItem('flashcard: decks', JSON.stringify(newDecks));
-  }
-  catch(e){
-    console.log('caught error', e);
-    // Handle exceptions
-  }
-}
+//   async deleteDeck(){
+//     try {
+//       const decks = JSON.parse(await AsyncStorage.getItem('flashcards: decks'));
+//       const newDecks = decks.filter(deck => deck.title != 'Speech');
+//       await AsyncStorage.setItem('flashcard: decks', JSON.stringify(newDecks));
+//   }
+//   catch(e){
+//     console.log('caught error', e);
+//     // Handle exceptions
+//   }
+// }
 
-  async deleteToken() {
-    try {
-      await AsyncStorage.removeItem(deck)
-    } catch (err) {
-      console.log(`The error is: ${err}`)
-    }
-  }
+//   async deleteToken() {
+//     try {
+//       await AsyncStorage.removeItem(deck)
+//     } catch (err) {
+//       console.log(`The error is: ${err}`)
+//     }
+//   }
 
   render() {
     const { decks } = this.props;
-    // console.log(decks)
+    console.log(decks)
 
 let swipeBtns = (deck) => {
       
   return [
   {
-    text: 'Delete',
+    text: 'Delete All',
+    autoClose:true,
     backgroundColor: 'red',
     underlayColor: 'rgba(0, 0, 0, 1, 0.6)',
     onPress: () => {
@@ -70,22 +71,22 @@ let swipeBtns = (deck) => {
           // this._removeStorage,
           // const deleteDeck = async () => {
           //   try {
-          //     await AsyncStorage.removeItem(deck,'key');
+          //     await AsyncStorage.removeItem('flashcards: decks');
           //   } catch (error) {
           //     // Error retrieving data
           //     console.log(error.message);
           //   }
           // }
           AsyncStorage.getAllKeys().then(console.log)
-          // AsyncStorage.removeItem(decks).then(
-          //   () => {
-          //     this.props.deleteSingleDeck(deck)
-          //     console.log('resolved')
-          //   },
-          //   () => {
-          //     console.log('rejected')
-          //   }
-          // )
+          AsyncStorage.removeItem('flashcards: decks').then(
+            () => {
+              this.props.deleteSingleDeck(deck)
+              console.log('resolved')
+            },
+            () => {
+              console.log('rejected')
+            }
+          )
           
         }
       },
@@ -93,7 +94,7 @@ let swipeBtns = (deck) => {
       { cancelable: true }
     )
   },
-  text: 'Delete', type: 'delete'
+  text: 'Delete', type: 'delete', underlayColor:'#3a3a3a',color:'white'
   }]
 }
 
@@ -102,7 +103,7 @@ let swipeBtns = (deck) => {
             {Object.keys(decks).map((deck) => {
               const { title, questions } = decks[deck]
               return (
-                <Swipeout right={swipeBtns(deck)} onPress={this._removeStorage}>
+                <Swipeout right={swipeBtns(deck)}>
                     <View key={deck} style={styles.card}>
                       <Text style={styles.cardText}>{title}</Text>
                       <Text style={styles.cardText}>{questions ? getCardsLength(questions) : null}</Text>

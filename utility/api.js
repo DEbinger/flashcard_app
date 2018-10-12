@@ -9,12 +9,12 @@ const initialData = {
             {
                 question: 'What is 4 x 2?',
                 answer: '10',
-                correctAnswer: 'false'
+                correctAnswer: 'False'
             },
             {
                 question: 'What is 5 + 20?',
                 answer: '25',
-                correctAnswer: 'true'
+                correctAnswer: 'True'
             }
         ]
     },
@@ -24,12 +24,12 @@ const initialData = {
             {
                 question: 'What is your favorite color?',
                 answer: 'green',
-                correctAnswer: 'false' 
+                correctAnswer: 'True' 
             },
             {
                 question: 'What is the name of your dog?',
                 answer: 'Shoyu',
-                correctAnswer: 'True'
+                correctAnswer: 'False'
             }
         ]
     }

@@ -50,7 +50,7 @@ class AddCard extends React.Component {
                                value={this.state.answer}>
                     </TextInput>
 
-                    <Text style={styles.title}>Is the answer correct {'\n'} or incorrect?</Text>
+                    <Text style={styles.title}>Is the answer True {'\n'} or False?</Text>
                     <TextInput style={styles.input}
                                onChangeText={(correctAnswer) => this.setState({ correctAnswer })}
                                value={this.state.correctAnswer}>

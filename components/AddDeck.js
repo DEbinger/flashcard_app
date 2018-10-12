@@ -25,7 +25,7 @@ class AdddDeck extends React.Component {
     render(){
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>What is the new {'\n'} category name?</Text>
+                <Text style={styles.title}>What is the new {'\n'} deck name?</Text>
                 <TextInput style={styles.input} 
                         onChangeText={(text) => this.setState({ text: text })}
                         value={this.state.text}>
