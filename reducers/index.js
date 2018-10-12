@@ -1,6 +1,7 @@
 import { ADD_DECK, GET_DECKS, RECEIVE_DECKS, ADD_CARD_TO_DECK, REMOVE_DECK } from '../actions/index';
 
 function deck ( state = {}, action ) {
+
     switch (action.type) {
         case ADD_DECK:
         const newDeck = {
@@ -26,7 +27,13 @@ function deck ( state = {}, action ) {
                     ...state[deck],
                     questions: [...state[deck].questions, { question, answer, correctAnswer }]
                 }
-            }    
+            }
+        case REMOVE_DECK:
+        let newState = Object.assign({},state) 
+        delete newState[action.deck]
+
+            return newState
+
         default:
             return state    
         }

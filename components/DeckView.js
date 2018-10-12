@@ -7,7 +7,6 @@ import ActionButton from './ActionButton';
 import { NavigationActions } from 'react-navigation';
 import { getCardsLength } from '../utility/helper';
 
-
 class DeckView extends React.Component {
     render() {
         const deck = this.props.navigation.state.params.entryId;

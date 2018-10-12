@@ -50,7 +50,7 @@ class AddCard extends React.Component {
                                value={this.state.answer}>
                     </TextInput>
 
-                    <Text style={styles.title}>Is this true or false?</Text>
+                    <Text style={styles.title}>Is the answer correct {'\n'} or incorrect?</Text>
                     <TextInput style={styles.input}
                                onChangeText={(correctAnswer) => this.setState({ correctAnswer })}
                                value={this.state.correctAnswer}>
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 30,
         color: '#333',
+        textAlign: 'center'
     },
     submitBtn: {
         borderWidth: 0.5,
