@@ -54,11 +54,10 @@ submitAnswer = (answer) => {
                             alignItems: "center",
                             width: 150,
                             height:150}}
-                        source={require("../assets/images/success_pug.gif")}
+                        source={require("../assets/images/two_pug.gif")}
                         style={styles.container}>
                         <View>
-                            <Text style={{color:white, textAlign:'center'}}>You got {this.state.correct} out of {decks[deck].questions.length}!{'\n'} 
-                            Good job dude! </Text>
+                            <Text style={{color:white, textAlign:'center'}}>You got {this.state.correct} out of {decks[deck].questions.length}! You did a great job! </Text>
                         </View>    
                         </ImageBackground>
                         :<ImageBackground
@@ -127,7 +126,7 @@ const styles = StyleSheet.create ({
         height: 3,
         width: '100%', 
         borderRadius: 10,
-        shadowColor: 'rgba(0,0,0,0.34)',
+        shadowColor: 'rgba(255,255,255,255)',
         shadowOffset: {
           width: 0,
           height: 3,

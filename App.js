@@ -12,8 +12,7 @@ import reducer from './reducers';
 import { createStore } from 'redux';
 import AddCard from './components/AddCard';
 import Quiz from './components/Quiz';
-import { setLocalNotification } from './utility/helper'
-
+import { setLocalNotification } from './utility/helper';
 
 function MyStatusBar ({backgroundColor, ...props}) {
   return (

@@ -4,7 +4,7 @@ import { saveDeckTitle } from '../utility/api';
 import { addDeck } from '../actions';
 import { connect } from 'react-redux';
 import SubmitButton from './SubmitButton';
-import {  orange, blue, red, purple, green } from '../utility/colors';
+import {  orange, blue, red, purple } from '../utility/colors';
 
 class AdddDeck extends React.Component {
    
@@ -42,7 +42,7 @@ const styles = StyleSheet.create ({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: green
+      backgroundColor: '#CFFFC6'
     },
     input: {
         width: 200,

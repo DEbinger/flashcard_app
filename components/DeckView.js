@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { getData } from '../utility/api';
 import { connect } from 'react-redux';
-import { purple, white, red, orange } from '../utility/colors';
+import { purple, white, red, orange, green } from '../utility/colors';
 import ActionButton from './ActionButton';
 import { NavigationActions } from 'react-navigation';
 import { getCardsLength } from '../utility/helper';
@@ -19,7 +19,7 @@ class DeckView extends React.Component {
                     <Text style={styles.mainText}>{decks[deck].title}</Text>
                     <Text style={styles.subText}>{questions ? getCardsLength(questions) : null}</Text>
 
-                    <ActionButton styles={styles} text={'Add Card'} color={purple} 
+                    <ActionButton styles={styles} text={'Add Card'} color={green} 
                         onPress={() => this.props.navigation.navigate('AddCard', { entryId: deck })}/>
                     <ActionButton styles={styles} text={'Start Quiz'} color={red}
                         onPress={() => this.props.navigation.navigate('Quiz', { entryId: deck })}/>
